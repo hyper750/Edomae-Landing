@@ -3,5 +3,3 @@
         
     </b-container>
 </template>
-
-<script>

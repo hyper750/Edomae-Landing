@@ -3,6 +3,8 @@ import App from './App.vue'
 import router from "./router";
 import i18n from "./translations";
 import "./bootstrap";
+import "./assets/landing.css";
+
 
 Vue.config.productionTip = false
 

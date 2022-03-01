@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueI18n from "vue-i18n";
-import spanishTranslations from "./es.json";
-import englishTranslations from "./en.json";
+import spanishTranslations from "./translations/es.json";
+import englishTranslations from "./translations/en.json";
 
 Vue.use(VueI18n);
 
@@ -12,8 +12,8 @@ export const languageAvailable = [
         file: spanishTranslations
     },
     {
-        code: 'es',
-        text: 'Spanish',
+        code: 'en',
+        text: 'English',
         file: englishTranslations
     },
 ];

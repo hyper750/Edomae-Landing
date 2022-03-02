@@ -1,7 +1,7 @@
 <template>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <router-link to="/">
-            <img
+            <b-img
                 :src="require('../assets/edomae.png')"
                 class="brand-logo"
                 alt="Edomae logo"
@@ -20,7 +20,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav mr-auto w-100">
                 <li
                     v-for="link in navbarItems"
                     :key="link.text"
@@ -35,11 +35,36 @@
                     </router-link>
                 </li>
             </ul>
+            <b-dropdown id="languageChooser" variant="default" right>
+                <template #button-content>
+                    <b-img
+                        :src="getActiveLanguage.flag"
+                        class="flag"
+                        alt="Current language flag"
+                    />
+                    {{ getActiveLanguage.text }}
+                </template>
+                <b-dropdown-item-button
+                    v-for="languageAvailable in getLanguages"
+                    :key="languageAvailable.code"
+                    :active="isActiveLanguage(languageAvailable)"
+                    @click="() => setLanguage(languageAvailable)"
+                >
+                    <b-img
+                        :src="languageAvailable.flag"
+                        alt="Language flag"
+                        class="flag"
+                    />
+                    {{ $t(languageAvailable.text) }}
+                </b-dropdown-item-button>
+            </b-dropdown>
         </div>
     </nav>
 </template>
 
 <script>
+import { languageAvailable } from "../translations";
+
 export default {
     data() {
         return {
@@ -58,6 +83,29 @@ export default {
                 },
             ],
         };
+    },
+
+    computed: {
+        getLanguages() {
+            return languageAvailable;
+        },
+
+        getActiveLanguage() {
+            return languageAvailable.find(
+                ({ code }) => code === this.$i18n.locale
+            );
+        },
+    },
+
+    methods: {
+        setLanguage({ code }) {
+            this.$i18n.locale = code;
+            localStorage.setItem("language", code);
+        },
+
+        isActiveLanguage({ code }) {
+            return this.$i18n.locale === code;
+        },
     },
 };
 </script>

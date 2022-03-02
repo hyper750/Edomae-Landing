@@ -2,6 +2,8 @@ import Vue from "vue";
 import VueI18n from "vue-i18n";
 import spanishTranslations from "./translations/es.json";
 import englishTranslations from "./translations/en.json";
+import GBFlag from "../assets/languageFlags/GB.png";
+import ESFlag from "../assets/languageFlags/ES.png";
 
 Vue.use(VueI18n);
 
@@ -9,12 +11,14 @@ export const languageAvailable = [
     {
         code: 'es',
         text: 'Spanish',
-        file: spanishTranslations
+        file: spanishTranslations,
+        flag: ESFlag
     },
     {
         code: 'en',
         text: 'English',
-        file: englishTranslations
+        file: englishTranslations,
+        flag: GBFlag
     },
 ];
 

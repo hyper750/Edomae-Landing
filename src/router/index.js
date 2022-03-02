@@ -1,7 +1,9 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import HomePage from "../views/HomePage";
 import i18n from "../translations";
+import HomePage from "../views/HomePage";
+import MenuPage from "../views/MenuPage";
+import ContactPage from "../views/ContactPage";
 
 Vue.use(VueRouter);
 
@@ -14,6 +16,22 @@ const router = new VueRouter({
             component: HomePage,
             meta: {
                 title: i18n.t('Home - Edomae')
+            }
+        },
+        {
+            name: 'Menu',
+            path: '/menu',
+            component: MenuPage,
+            meta: {
+                title: i18n.t('Menu - Edomae')
+            }
+        },
+        {
+            name: 'Contact',
+            path: '/contact',
+            component: ContactPage,
+            meta: {
+                title: i18n.t('Contact - Edomae')
             }
         }
     ]

@@ -24,3 +24,11 @@
     background-color: white;
     min-height: 75vh;
 }
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}

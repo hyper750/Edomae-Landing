@@ -19,3 +19,8 @@
 .navbar-margin {
     margin-bottom: 80px;
 }
+
+.main-content {
+    background-color: white;
+    min-height: 75vh;
+}

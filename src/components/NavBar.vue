@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light px-2">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light ps-3">
         <router-link to="/">
             <b-img
                 :src="require('../assets/edomae.png')"

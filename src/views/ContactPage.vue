@@ -156,6 +156,7 @@
 <script>
 import NavBar from "../components/NavBar";
 import FooterBar from "../components/FooterBar";
+import ContactMessageEndpoints from "../axios/api/contactMessage";
 
 export default {
     components: {
@@ -177,15 +178,23 @@ export default {
         sendMessage(event) {
             event.preventDefault();
             this.isSending = true;
-            // TODO: Send to endpoint
-            setTimeout(() => {
-                this.isSending = false;
-                this.errors = false;
-                // For some reason I have to wait between I enable the fields a clean the field forms
-                setTimeout(() => {
-                    this.$refs.contactForm.reset();
-                }, 10);
-            }, 2000);
+            ContactMessageEndpoints.post({
+                name: this.name,
+                email: this.email,
+                message: this.message,
+            })
+                .then(() => {
+                    this.errors = false;
+                })
+                .catch(() => {
+                    this.errors = true;
+                })
+                .finally(() => {
+                    this.isSending = false;
+                    setTimeout(() => {
+                        this.$refs.contactForm.reset();
+                    }, 10);
+                });
         },
     },
 };

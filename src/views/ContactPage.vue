@@ -71,6 +71,7 @@
                                                     "
                                                     required
                                                     :disabled="isSending"
+                                                    rows="8"
                                                 />
                                             </b-form-group>
                                         </b-col>

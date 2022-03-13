@@ -27,12 +27,14 @@
                     class="nav-item"
                 >
                     <router-link
+                        v-if="!link.external"
                         :to="link.link"
                         class="nav-link"
                         exact-active-class="active"
                     >
                         {{ link.text }}
                     </router-link>
+                    <a v-else target="_blank" :href="link.link" class="nav-link">{{ link.text }}</a>
                 </li>
             </ul>
             <b-dropdown id="languageChooser" variant="default" right>
@@ -80,6 +82,11 @@ export default {
                 {
                     text: this.$i18n.t("Contact"),
                     link: "/contact",
+                },
+                {
+                    text: this.$i18n.t('Order from glovo'),
+                    link: "https://glovoapp.com/es/es/mahon/edomae-mahon/",
+                    external: true,
                 },
             ],
         };

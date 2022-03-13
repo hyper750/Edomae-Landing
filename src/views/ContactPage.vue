@@ -95,11 +95,7 @@
                                                     text-danger
                                                 "
                                             >
-                                                {{
-                                                    $t(
-                                                        "Error sending the message"
-                                                    )
-                                                }}
+                                                {{ errors }}
                                             </p>
                                             <p
                                                 v-if="
@@ -170,7 +166,7 @@ export default {
             email: null,
             message: null,
             isSending: null,
-            errors: false,
+            errors: null,
         };
     },
 
@@ -187,10 +183,15 @@ export default {
                 message: this.message,
             })
                 .then(() => {
-                    this.errors = false;
+                    this.errors = null;
                 })
-                .catch(() => {
-                    this.errors = true;
+                .catch((error) => {
+                    if(error.response) {
+                        this.errors = this.$t(error.response.data.error);
+                    }
+                    else {
+                        this.errors = this.$t("Error sending the message");
+                    }
                 })
                 .finally(() => {
                     this.isSending = false;

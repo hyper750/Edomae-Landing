@@ -29,7 +29,7 @@
                     <router-link
                         :to="link.link"
                         class="nav-link"
-                        active-class="active"
+                        exact-active-class="active"
                     >
                         {{ link.text }}
                     </router-link>

@@ -6,7 +6,7 @@
             </b-col>
         </b-row>
 
-        <v-row>
+        <b-row class="px-3">
             <b-col md="12" class="bg-white p-4">
                 <b-container fluid>
                     <b-row>
@@ -143,7 +143,7 @@
                     </b-row>
                 </b-container>
             </b-col>
-        </v-row>
+        </b-row>
 
         <b-row class="mt-4">
             <b-col md="12">
@@ -175,10 +175,13 @@ export default {
     },
 
     methods: {
-        sendMessage(event) {
+        async sendMessage(event) {
             event.preventDefault();
             this.isSending = true;
-            ContactMessageEndpoints.post({
+            await this.$recaptchaLoaded();
+            const googleToken = await this.$recaptcha('contactPage');
+            await ContactMessageEndpoints.post({
+                googleToken,
                 name: this.name,
                 email: this.email,
                 message: this.message,

@@ -1,4 +1,8 @@
-# landing
+# Edomae Landing
+
+## Environment variables
+- `VUE_APP_API_URL` str: Url of the api, eg: `https://localhost`
+- `VUE_APP_RECAPTCHA_SITE_KEY` str: recaptcha site key
 
 ## Project setup
 ```

@@ -8,7 +8,30 @@
 
         <b-row class="px-3">
             <b-col md="12" class="bg-white p-4">
-                
+                <b-container fluid>
+                    <!-- Show categories if no category is selected -->
+                    <b-row v-if="!selectedCategory">
+                        <b-col
+                            md="3"
+                            v-for="mealCategory in mealCategories"
+                            :key="mealCategory.id"
+                        >
+                            <b-card
+                                :title="mealCategory.name"
+                                :img-src="mealCategory.imatge"
+                                :img-alt="mealCategory.name"
+                                class="mb-4 menu-card shadow-sm"
+                                overlay
+                                text-variant="white"
+                                img-top
+                                @click="() => selectCategory(mealCategory)"
+                            >
+                            </b-card>
+                        </b-col>
+                    </b-row>
+                    <!-- Show meals of the category selected -->
+                    <b-row v-if="selectedCategory"> </b-row>
+                </b-container>
             </b-col>
         </b-row>
 
@@ -39,8 +62,10 @@ export default {
 
     data() {
         return {
-            meal: [],
-            mealCategory: [],
+            meals: [],
+            mealCategories: [],
+
+            selectedCategory: null,
         };
     },
 
@@ -48,13 +73,17 @@ export default {
         loadMealCategory() {
             MealCategoryEndpoints.list({
                 enabled: true,
-            }).then(({ data }) => (this.mealCategory = data));
+            }).then(({ data }) => (this.mealCategories = data));
         },
 
         loadMeal() {
             MealEndpoints.list({
                 enabled: true,
-            }).then(({ data }) => (this.meal = data));
+            }).then(({ data }) => (this.meals = data));
+        },
+
+        selectCategory(mealCategory) {
+            this.selectedCategory = mealCategory;
         },
     },
 };

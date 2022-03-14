@@ -32,3 +32,15 @@ ul {
 a {
     text-decoration: none;
 }
+
+.menu-card {
+    cursor: pointer;
+}
+
+.menu-card img {
+    height: 300px;
+}
+
+.menu-card:hover {
+    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important;
+}

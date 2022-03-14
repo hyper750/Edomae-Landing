@@ -3,7 +3,7 @@ import { api } from "./api";
 export default {
     ENDPOINT: '/mealCategory',
 
-    async get(filters) {
+    async list(filters) {
         return await api.get(this.ENDPOINT, { params: filters });
     },
 };

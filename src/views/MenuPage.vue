@@ -1,5 +1,5 @@
 <template>
-    <b-container fluid class="vh-100 bg-light">
+    <b-container fluid class="h-100 bg-light">
         <b-row class="navbar-margin">
             <b-col md="12">
                 <NavBar />
@@ -21,6 +21,7 @@
                     <b-row v-if="!selectedCategory">
                         <b-col
                             md="3"
+                            class="mb-4"
                             v-for="mealCategory in mealCategories"
                             :key="mealCategory.id"
                         >
@@ -28,10 +29,7 @@
                                 :title="mealCategory.name"
                                 :img-src="mealCategory.imatge"
                                 :img-alt="mealCategory.name"
-                                class="mb-4 menu-card shadow-sm"
-                                overlay
-                                text-variant="white"
-                                img-top
+                                class="menu-card shadow-sm h-100"
                                 @click="() => selectCategory(mealCategory)"
                             >
                             </b-card>
@@ -46,7 +44,7 @@
                                 @click="() => unselectCategory()"
                             >
                                 <BIconChevronLeft />
-                                {{ $t("Go to meal") }}
+                                {{ $t("Back to categories") }}
                             </b-btn>
                             <h3 class="d-inline align-middle">
                                 {{ selectedCategory.name }}
@@ -55,17 +53,16 @@
 
                         <b-col
                             md="3"
+                            class="mb-4"
                             v-for="meal in getMealByCategory"
                             :key="meal.id"
                         >
                             <b-card
-                                :title="meal.name"
+                                :title="`${meal.name} - ${meal.price}€`"
+                                :sub-title="meal.description"
                                 :img-src="meal.imatge"
                                 :img-alt="meal.name"
-                                class="mb-4 menu-card shadow-sm"
-                                overlay
-                                text-variant="white"
-                                img-top
+                                class="menu-card shadow-sm h-100"
                             >
                             </b-card>
                         </b-col>
@@ -122,7 +119,15 @@ export default {
         loadMealCategory() {
             MealCategoryEndpoints.list({
                 enabled: true,
-            }).then(({ data }) => (this.mealCategories = data));
+            }).then(({ data }) => {
+                const excludeCategories = [
+                    // Don't show "bebidas"
+                    3,
+                ];
+                this.mealCategories = data.filter(
+                    ({ id }) => !excludeCategories.includes(id)
+                );
+            });
         },
 
         loadMeal() {

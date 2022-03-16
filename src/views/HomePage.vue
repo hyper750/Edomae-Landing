@@ -1,5 +1,5 @@
 <template>
-    <b-container fluid class="vh-100 bg-light">
+    <b-container fluid class="h-100 bg-light">
         <b-row class="navbar-margin">
             <b-col md="12">
                 <NavBar />

@@ -35,7 +35,7 @@
         <b-row class="fixed-chevron-bottom w-100">
             <b-col md="12">
                 <div class="icon bg-white rounded-circle mx-auto text-center mb-2" @click="() => nextSlide()" v-if="slideNumber < imageSlides.length">
-                    <BIconChevronDown class="align-middle" />
+                    <BIconChevronDown class="align-bottom" />
                 </div>
 
                 <div class="icon bg-white rounded-circle mx-auto text-center mb-2" @click="() => firstSlide()" v-else>
@@ -62,11 +62,11 @@
     width: 32px;
     height: 32px;
     cursor: pointer;
-    opacity: 0.4;
+    opacity: 0.8;
 }
 
 .fixed-chevron-bottom .icon:hover {
-    opacity: 0.8;
+    opacity: 0.4;
 }
 </style>
 
@@ -92,26 +92,6 @@ export default {
                     title: 'Your trusted Japanese restaurant',
                     subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pharetra ut mauris a dignissim. Nunc sit amet ante scelerisque, vulputate nunc eget, viverra lorem. Etiam id ultrices velit. ',
                     path: require("../assets/photos/local/IMG_20220318_165348.jpg"),
-                },
-                {
-                    title: 'Your trusted Japanese restaurant',
-                    subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pharetra ut mauris a dignissim. Nunc sit amet ante scelerisque, vulputate nunc eget, viverra lorem. Etiam id ultrices velit. ',
-                    path: require("../assets/photos/local/IMG_20220318_165622.jpg"),
-                },
-                {
-                    title: 'Your trusted Japanese restaurant',
-                    subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pharetra ut mauris a dignissim. Nunc sit amet ante scelerisque, vulputate nunc eget, viverra lorem. Etiam id ultrices velit. ',
-                    path: require("../assets/photos/local/IMG_20220318_165606.jpg"),
-                },
-                {
-                    title: 'Your trusted Japanese restaurant',
-                    subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pharetra ut mauris a dignissim. Nunc sit amet ante scelerisque, vulputate nunc eget, viverra lorem. Etiam id ultrices velit. ',
-                    path: require("../assets/photos/local/IMG_20220318_165455.jpg"),
-                },
-                {
-                    title: 'Your trusted Japanese restaurant',
-                    subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pharetra ut mauris a dignissim. Nunc sit amet ante scelerisque, vulputate nunc eget, viverra lorem. Etiam id ultrices velit. ',
-                    path: require("../assets/photos/local/IMG_20220318_165330.jpg"),
                 },
                 {
                     title: 'Your trusted Japanese restaurant',

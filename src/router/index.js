@@ -34,7 +34,15 @@ const router = new VueRouter({
                 title: i18n.t('Contact - Edomae')
             }
         }
-    ]
+    ],
+
+    scrollBehavior(to) {
+        if(to.hash) {
+            return {
+                selector: to.hash
+            };
+        }
+    }
 })
 
 router.afterEach((to) => {

@@ -165,7 +165,7 @@ export default {
 
             // TODO: Hash is not navigation to next slide...
             this.$router.push({
-                ...this.$router.currentRoute,
+                name: 'Home',
                 hash: `#slide-${this.slideNumber}`
             });
         },

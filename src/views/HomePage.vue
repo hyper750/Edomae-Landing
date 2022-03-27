@@ -94,28 +94,30 @@ export default {
 
             imageSlides: [
                 {
-                    title: 'Your trusted Japanese restaurant',
-                    subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pharetra ut mauris a dignissim. Nunc sit amet ante scelerisque, vulputate nunc eget, viverra lorem. Etiam id ultrices velit. ',
-                    path: require("../assets/photos/local/IMG_20220318_165348.jpg"),
-                },
-                {
-                   title: 'Your trusted Japanese restaurant',
-                   subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pharetra ut mauris a dignissim. Nunc sit amet ante scelerisque, vulputate nunc eget, viverra lorem. Etiam id ultrices velit. ',
-                   path: require("../assets/photos/local/IMG_20220318_165622.jpg"),
-                },
-                {
-                    title: 'Talk about sushi',
-                    subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pharetra ut mauris a dignissim. Nunc sit amet ante scelerisque, vulputate nunc eget, viverra lorem. Etiam id ultrices velit. ',
-                    path: require("../assets/photos/meal/IMG_20211020_205937_1.jpg"),
-                },
-                {
-                    title: 'Talk about hot dishes',
-                    subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pharetra ut mauris a dignissim. Nunc sit amet ante scelerisque, vulputate nunc eget, viverra lorem. Etiam id ultrices velit. ',
+                    title: 'Umami',
+                    subtitle: 'Awake the fifth taste with our sushi and hot dishes',
+                    // TODO: Change the dish for some sushi or bonito
                     path: require("../assets/photos/meal/udon picante.jpg"),
                 },
                 {
-                    title: 'Talk about hand made desserts',
-                    subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pharetra ut mauris a dignissim. Nunc sit amet ante scelerisque, vulputate nunc eget, viverra lorem. Etiam id ultrices velit. ',
+                    title: 'Quality',
+                    subtitle: 'Time and dedication for each dish like the first one',
+                    // TODO: Replace image with torching sushi
+                    path: require("../assets/photos/meal/IMG_20211020_205937_1.jpg"),
+                },
+                {
+                    title: 'Fresh',
+                    subtitle: 'We only have fresh ingredients with the best quality',
+                    path: require("../assets/photos/meal/IMG_20211020_205937_1.jpg"),
+                },
+                {
+                    title: 'Traditional',
+                    subtitle: 'Interior decoration for traditional japanese dishes',
+                    path: require("../assets/photos/local/IMG_20220318_165348.jpg"),
+                },
+                {
+                    title: 'Artesanal',
+                    subtitle: 'All the dishes are made by hand to enjoy it like no one',
                     path: require("../assets/photos/meal/daifuku.jpeg"),
                 },
             ],

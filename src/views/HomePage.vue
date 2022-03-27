@@ -83,6 +83,14 @@ export default {
         BIconChevronUp,
     },
 
+    mounted() {
+        // Load slide number from path
+        const slideNumber = this.getSlideNumberFromRouter();
+        if(slideNumber) {
+            this.slideNumber = slideNumber;
+        }
+    },
+
     data() {
         return {
             slideNumber: 1,
@@ -128,16 +136,23 @@ export default {
     },
 
     methods: {
-        nextSlide() {
-            // Load slide number from path
+        getSlideNumberFromRouter() {
             if(this.$router.currentRoute.hash) {
                 let slideNumber = this.$router.currentRoute.hash.split('#slide-')[1];
                 if(slideNumber) {
                     slideNumber = parseInt(slideNumber);
                     if(slideNumber >= 1 && slideNumber <= this.imageSlides.length) {
-                        this.slideNumber = slideNumber;
+                        return slideNumber;
                     }
                 }
+            }
+        },
+
+        nextSlide() {
+            // Load slide number from path
+            const slideNumber = this.getSlideNumberFromRouter();
+            if(slideNumber) {
+                this.slideNumber = slideNumber;
             }
 
             // Check if we can go to next slide

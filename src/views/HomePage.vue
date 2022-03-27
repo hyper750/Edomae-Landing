@@ -1,34 +1,42 @@
 <template>
     <b-container fluid class="h-100 bg-light">
-        <b-row class="navbar-margin">
+        <b-row style="margin-bottom: 40px">
             <b-col md="12">
                 <NavBar />
             </b-col>
         </b-row>
 
-        <b-row class="px-3">
-            <b-col md="12" class="bg-white p-4">
-                <b-container fluid>
-                    <b-row v-for="(image, index) in imageSlides" :key="index" class="mb-4">
+        <b-row class="px-0">
+            <b-col md="12" class="bg-white py-4">
+                <b-container fluid class="px-0">
+                    <b-row v-for="(image, index) in imageSlides" :key="index" :id="`slide-${index + 1}`">
                         <!-- Text left for even -->
-                        <b-col md="3" class="align-self-center" v-if="index % 2 == 0">
+                        <b-col md="3" class="align-self-center px-4" v-if="index % 2 == 0">
                             <h2 class="text-center">{{ $t(image.title) }}</h2>
                             <h5 class="text-secondary text-center">{{ $t(image.subtitle) }}</h5>
                         </b-col>
-                        <b-col md="9" v-if="index % 2 == 0">
+                        <b-col md="9" v-if="index % 2 == 0" class="px-0">
                             <b-img :src="image.path" class="w-100"/>
                         </b-col>
 
                         <!-- Text right for odd -->
-                        <b-col md="9" v-if="index % 2 == 1">
+                        <b-col md="9" v-if="index % 2 == 1" class="px-0">
                             <b-img :src="image.path" class="w-100"/>
                         </b-col>
-                        <b-col md="3" class="align-self-center" v-if="index % 2 == 1">
+                        <b-col md="3" class="align-self-center px-4" v-if="index % 2 == 1">
                             <h2 class="text-center">{{ $t(image.title) }}</h2>
                             <h5 class="text-secondary text-center">{{ $t(image.subtitle) }}</h5>
                         </b-col>
                     </b-row>
                 </b-container>
+            </b-col>
+        </b-row>
+
+        <b-row class="fixed-chevron-bottom w-100">
+            <b-col md="12">
+                <div class="icon bg-white rounded-circle mx-auto text-center mb-2" @click="() => nextSlide()">
+                    <BIconChevronDown class="align-middle" />
+                </div>
             </b-col>
         </b-row>
 
@@ -40,18 +48,40 @@
     </b-container>
 </template>
 
+<style scoped>
+.fixed-chevron-bottom {
+    position: fixed;
+    bottom: 0;
+}
+
+.fixed-chevron-bottom .icon {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    opacity: 0.4;
+}
+
+.fixed-chevron-bottom .icon:hover {
+    opacity: 0.8;
+}
+</style>
+
 <script>
 import NavBar from "../components/NavBar";
 import FooterBar from "../components/FooterBar";
+import { BIconChevronDown } from "bootstrap-vue";
 
 export default {
     components: {
         NavBar,
         FooterBar,
+        BIconChevronDown,
     },
 
     data() {
         return {
+            slideNumber: 1,
+
             imageSlides: [
                 {
                     title: 'Your trusted Japanese restaurant',
@@ -111,6 +141,35 @@ export default {
             ],
         };
     },
+
+    methods: {
+        nextSlide() {
+            // Load slide number from path
+            if(this.$router.currentRoute.hash) {
+                let slideNumber = this.$router.currentRoute.hash.split('#slide-')[1];
+                if(slideNumber) {
+                    slideNumber = parseInt(slideNumber);
+                    if(slideNumber >= 1 && slideNumber <= this.imageSlides.length) {
+                        this.slideNumber = slideNumber;
+                    }
+                }
+            }
+
+            // Check if we can go to next slide
+            if(this.slideNumber + 1 > this.imageSlides.length) {
+                return;
+            }
+
+            // Go to next slide
+            this.slideNumber++;
+
+            // TODO: Hash is not navigation to next slide...
+            this.$router.push({
+                ...this.$router.currentRoute,
+                hash: `#slide-${this.slideNumber}`
+            });
+        },
+    }
 };
 </script>
 

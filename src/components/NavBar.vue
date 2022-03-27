@@ -84,10 +84,15 @@ export default {
                     link: "/contact",
                 },
                 {
-                    text: this.$i18n.t('Order from glovo'),
+                    text: this.$i18n.t('Order from Glovo'),
                     link: "https://glovoapp.com/es/es/mahon/edomae-mahon/",
                     external: true,
                 },
+                {
+                    text: this.$i18n.t('Order from A Taula'),
+                    link: 'https://a-taula.com/restaurant/352/edomae',
+                    external: true,
+                }
             ],
         };
     },

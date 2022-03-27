@@ -42,6 +42,8 @@ const router = new VueRouter({
                 selector: to.hash
             };
         }
+
+        return { x: 0, y: 0 };
     }
 })
 

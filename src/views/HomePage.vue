@@ -34,8 +34,12 @@
 
         <b-row class="fixed-chevron-bottom w-100">
             <b-col md="12">
-                <div class="icon bg-white rounded-circle mx-auto text-center mb-2" @click="() => nextSlide()">
+                <div class="icon bg-white rounded-circle mx-auto text-center mb-2" @click="() => nextSlide()" v-if="slideNumber < imageSlides.length">
                     <BIconChevronDown class="align-middle" />
+                </div>
+
+                <div class="icon bg-white rounded-circle mx-auto text-center mb-2" @click="() => firstSlide()" v-else>
+                    <BIconChevronUp class="align-middle" />
                 </div>
             </b-col>
         </b-row>
@@ -69,13 +73,14 @@
 <script>
 import NavBar from "../components/NavBar";
 import FooterBar from "../components/FooterBar";
-import { BIconChevronDown } from "bootstrap-vue";
+import { BIconChevronDown, BIconChevronUp } from "bootstrap-vue";
 
 export default {
     components: {
         NavBar,
         FooterBar,
         BIconChevronDown,
+        BIconChevronUp,
     },
 
     data() {
@@ -163,13 +168,20 @@ export default {
             // Go to next slide
             this.slideNumber++;
 
-            // TODO: Hash is not navigation to next slide...
             this.$router.push({
                 name: 'Home',
                 hash: `#slide-${this.slideNumber}`
             });
         },
-    }
+
+        firstSlide() {
+            this.slideNumber = 1;
+            this.$router.push({
+                name: 'Home',
+                hash: `#slide-${this.slideNumber}`
+            });
+        },
+    },
 };
 </script>
 

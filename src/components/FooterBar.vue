@@ -12,6 +12,7 @@
             <b-row>
                 <b-col md="3" class="mx-auto">
                     <ul>
+                        <li class="text-muted"><span class="fst-italic"><a href="/carta.pdf" target="_blank">{{ $t("Menu PDF") }}</a></span></li>
                         <li class="text-muted"><span class="fst-italic"><a href="https://glovoapp.com/es/es/mahon/edomae-mahon/" target="_blank">{{ $t("Order from Glovo") }}</a></span></li>
                         <li class="text-muted"><span class="fst-italic"><a href="https://a-taula.com/restaurant/352/edomae" target="_blank">{{ $t("Order from A Taula") }}</a></span></li>
                         <li class="text-muted"><span class="fst-italic"><a href="https://www.tripadvisor.es/Restaurant_Review-g642211-d23628124-Reviews-Edomae-Mahon_Menorca_Balearic_Islands.html?m=19905" target="_blank">{{ $t("Rate us at tripadvisor") }}</a></span></li>

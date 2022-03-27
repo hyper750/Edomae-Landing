@@ -85,10 +85,7 @@ export default {
 
     mounted() {
         // Load slide number from path
-        const slideNumber = this.getSlideNumberFromRouter();
-        if(slideNumber) {
-            this.slideNumber = slideNumber;
-        }
+        this.slideNumber = this.getSlideNumberFromRouter();
     },
 
     data() {
@@ -102,32 +99,22 @@ export default {
                     path: require("../assets/photos/local/IMG_20220318_165348.jpg"),
                 },
                 {
-                    title: 'Your trusted Japanese restaurant',
-                    subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pharetra ut mauris a dignissim. Nunc sit amet ante scelerisque, vulputate nunc eget, viverra lorem. Etiam id ultrices velit. ',
-                    path: require("../assets/photos/meal/yakisoba.jpeg"),
+                   title: 'Your trusted Japanese restaurant',
+                   subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pharetra ut mauris a dignissim. Nunc sit amet ante scelerisque, vulputate nunc eget, viverra lorem. Etiam id ultrices velit. ',
+                   path: require("../assets/photos/local/IMG_20220318_165622.jpg"),
                 },
                 {
-                    title: 'Your trusted Japanese restaurant',
-                    subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pharetra ut mauris a dignissim. Nunc sit amet ante scelerisque, vulputate nunc eget, viverra lorem. Etiam id ultrices velit. ',
-                    path: require("../assets/photos/meal/sushi box.jpeg"),
-                },
-                {
-                    title: 'Your trusted Japanese restaurant',
+                    title: 'Talk about sushi',
                     subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pharetra ut mauris a dignissim. Nunc sit amet ante scelerisque, vulputate nunc eget, viverra lorem. Etiam id ultrices velit. ',
                     path: require("../assets/photos/meal/IMG_20211020_205937_1.jpg"),
                 },
                 {
-                    title: 'Your trusted Japanese restaurant',
+                    title: 'Talk about hot dishes',
                     subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pharetra ut mauris a dignissim. Nunc sit amet ante scelerisque, vulputate nunc eget, viverra lorem. Etiam id ultrices velit. ',
                     path: require("../assets/photos/meal/udon picante.jpg"),
                 },
                 {
-                    title: 'Your trusted Japanese restaurant',
-                    subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pharetra ut mauris a dignissim. Nunc sit amet ante scelerisque, vulputate nunc eget, viverra lorem. Etiam id ultrices velit. ',
-                    path: require("../assets/photos/meal/IMG_20211020_211357_1.jpg"),
-                },
-                {
-                    title: 'Your trusted Japanese restaurant',
+                    title: 'Talk about hand made desserts',
                     subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pharetra ut mauris a dignissim. Nunc sit amet ante scelerisque, vulputate nunc eget, viverra lorem. Etiam id ultrices velit. ',
                     path: require("../assets/photos/meal/daifuku.jpeg"),
                 },
@@ -146,14 +133,13 @@ export default {
                     }
                 }
             }
+
+            return 1;
         },
 
         nextSlide() {
             // Load slide number from path
-            const slideNumber = this.getSlideNumberFromRouter();
-            if(slideNumber) {
-                this.slideNumber = slideNumber;
-            }
+            this.slideNumber = this.getSlideNumberFromRouter();
 
             // Check if we can go to next slide
             if(this.slideNumber + 1 > this.imageSlides.length) {

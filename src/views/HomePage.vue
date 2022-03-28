@@ -44,7 +44,7 @@
             </b-col>
         </b-row>
 
-        <b-row class="mt-4">
+        <b-row class="mt-4 pb-4">
             <b-col md="12">
                 <FooterBar />
             </b-col>
@@ -112,7 +112,7 @@ export default {
                 },
                 {
                     title: 'Traditional',
-                    subtitle: 'Interior decoration for traditional japanese dishes',
+                    subtitle: 'Traditional interior decoration for traditional japanese dishes',
                     path: require("../assets/photos/local/IMG_20220318_165348.jpg"),
                 },
                 {

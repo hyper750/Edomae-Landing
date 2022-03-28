@@ -96,14 +96,12 @@ export default {
                 {
                     title: 'Umami',
                     subtitle: 'Awake the fifth taste with our sushi and hot dishes',
-                    // TODO: Change the dish for some sushi or bonito
-                    path: require("../assets/photos/meal/udon picante.jpg"),
+                    path: require("../assets/photos/meal/presentation.jpeg"),
                 },
                 {
                     title: 'Quality',
                     subtitle: 'Time and dedication for each dish like the first one',
-                    // TODO: Replace image with torching sushi
-                    path: require("../assets/photos/meal/IMG_20211020_205937_1.jpg"),
+                    path: require("../assets/photos/meal/torching.jpeg"),
                 },
                 {
                     title: 'Fresh',

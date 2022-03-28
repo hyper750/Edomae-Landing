@@ -22,8 +22,8 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto w-100">
                 <li
-                    v-for="link in navbarItems"
-                    :key="link.text"
+                    v-for="(link, index) in navbarItems"
+                    :key="index"
                     class="nav-item"
                 >
                     <router-link
@@ -32,9 +32,9 @@
                         class="nav-link"
                         exact-active-class="active"
                     >
-                        {{ link.text }}
+                        {{ $t(link.text) }}
                     </router-link>
-                    <a v-else target="_blank" :href="link.link" class="nav-link">{{ link.text }}</a>
+                    <a v-else target="_blank" :href="link.link" class="nav-link">{{ $t(link.text) }}</a>
                 </li>
             </ul>
             <b-dropdown id="languageChooser" variant="default" right>
@@ -72,24 +72,24 @@ export default {
         return {
             navbarItems: [
                 {
-                    text: this.$i18n.t("Home"),
+                    text: "Home",
                     link: "/",
                 },
                 {
-                    text: this.$i18n.t("Menu"),
+                    text: "Menu",
                     link: "/menu",
                 },
                 {
-                    text: this.$i18n.t("Contact"),
+                    text: "Contact",
                     link: "/contact",
                 },
                 {
-                    text: this.$i18n.t('Order from Glovo'),
+                    text: 'Order from Glovo',
                     link: "https://glovoapp.com/es/es/mahon/edomae-mahon/",
                     external: true,
                 },
                 {
-                    text: this.$i18n.t('Order from A Taula'),
+                    text: 'Order from A Taula',
                     link: 'https://a-taula.com/restaurant/352/edomae',
                     external: true,
                 }

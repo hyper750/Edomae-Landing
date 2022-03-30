@@ -9,18 +9,18 @@
         <b-row class="px-0">
             <b-col md="12" class="bg-white py-4">
                 <b-container fluid class="px-0">
-                    <b-row v-for="(image, index) in imageSlides" :key="index" :id="`slide-${index + 1}`">
+                    <b-row v-for="(image, index) in imageSlides" :key="index" :id="`slide-${index + 1}`" class="vh-100">
                         <!-- Text left for even -->
                         <b-col md="3" class="align-self-center px-4" v-if="index % 2 == 0">
                             <h2 class="text-center">{{ $t(image.title) }}</h2>
                             <h5 class="text-secondary text-center">{{ $t(image.subtitle) }}</h5>
                         </b-col>
-                        <b-col md="9" v-if="index % 2 == 0" class="px-0">
+                        <b-col md="9" v-if="index % 2 == 0" class="px-0 align-self-center">
                             <b-img :src="image.path" class="w-100"/>
                         </b-col>
 
                         <!-- Text right for odd -->
-                        <b-col md="9" v-if="index % 2 == 1" class="px-0">
+                        <b-col md="9" v-if="index % 2 == 1" class="px-0 align-self-center">
                             <b-img :src="image.path" class="w-100"/>
                         </b-col>
                         <b-col md="3" class="align-self-center px-4" v-if="index % 2 == 1">
@@ -35,11 +35,11 @@
         <b-row class="fixed-chevron-bottom w-100">
             <b-col md="12">
                 <div class="icon bg-white rounded-circle mx-auto text-center mb-2" @click="() => nextSlide()" v-if="slideNumber < imageSlides.length">
-                    <BIconChevronDown class="align-bottom" />
+                    <BIconChevronDown class="align-middle" />
                 </div>
 
                 <div class="icon bg-white rounded-circle mx-auto text-center mb-2" @click="() => firstSlide()" v-else>
-                    <BIconChevronUp class="align-middle" />
+                    <BIconChevronUp  />
                 </div>
             </b-col>
         </b-row>
@@ -59,15 +59,35 @@
 }
 
 .fixed-chevron-bottom .icon {
-    width: 32px;
-    height: 32px;
+    width: 64px;
+    height: 64px;
     cursor: pointer;
     opacity: 0.8;
+    line-height: 64px;
 }
 
 .fixed-chevron-bottom .icon:hover {
     opacity: 0.4;
 }
+
+.fixed-chevron-bottom .icon svg {
+    width: 32px;
+    height: 32px;
+}
+
+@media (min-width: 768px) {
+.fixed-chevron-bottom .icon {
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+}
+
+.fixed-chevron-bottom .icon svg {
+    width: 16px;
+    height: 16px;
+}
+}
+
 </style>
 
 <script>

@@ -9,7 +9,7 @@
         <b-row class="px-0">
             <b-col md="12" class="bg-white py-4">
                 <b-container fluid class="px-0">
-                    <b-row v-for="(image, index) in imageSlides" :key="index" :id="`slide-${index + 1}`" class="vh-100">
+                    <b-row v-for="(image, index) in imageSlides" :key="index" :id="`slide-${index + 1}`" class="h-100">
                         <!-- Text left for even -->
                         <b-col md="3" class="align-self-center px-4" v-if="index % 2 == 0">
                             <h2 class="text-center">{{ $t(image.title) }}</h2>

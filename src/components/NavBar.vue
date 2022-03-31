@@ -1,5 +1,10 @@
 <template>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary ps-3 shadow">
+    <b-navbar
+        toggleable="lg"
+        type="dark"
+        variant="primary"
+        class="fixed-top ps-3 shadow"
+    >
         <router-link to="/">
             <b-img
                 :src="require('../assets/edomae.png')"
@@ -7,19 +12,10 @@
                 alt="Edomae logo"
             />
         </router-link>
-        <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-        >
-            <span class="navbar-toggler-icon"></span>
-        </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+        <b-collapse id="nav-collapse" is-nav>
             <ul class="navbar-nav mr-auto w-100">
                 <li
                     v-for="(link, index) in navbarItems"
@@ -34,10 +30,17 @@
                     >
                         {{ $t(link.text) }}
                     </router-link>
-                    <a v-else target="_blank" :href="link.link" class="nav-link">{{ $t(link.text) }}</a>
+                    <a
+                        v-else
+                        target="_blank"
+                        :href="link.link"
+                        class="nav-link"
+                        >{{ $t(link.text) }}</a
+                    >
                 </li>
             </ul>
-            <b-dropdown id="languageChooser" variant="default" right>
+
+            <b-dropdown id="languageChooser" variant="default">
                 <template #button-content>
                     <b-img
                         :src="getActiveLanguage.flag"
@@ -60,8 +63,8 @@
                     {{ $t(languageAvailable.text) }}
                 </b-dropdown-item-button>
             </b-dropdown>
-        </div>
-    </nav>
+        </b-collapse>
+    </b-navbar>
 </template>
 
 <script>
@@ -84,15 +87,15 @@ export default {
                     link: "/contact",
                 },
                 {
-                    text: 'Order from Glovo',
+                    text: "Order from Glovo",
                     link: "https://glovoapp.com/es/es/mahon/edomae-mahon/",
                     external: true,
                 },
                 {
-                    text: 'Order from A Taula',
-                    link: 'https://a-taula.com/restaurant/352/edomae',
+                    text: "Order from A Taula",
+                    link: "https://a-taula.com/restaurant/352/edomae",
                     external: true,
-                }
+                },
             ],
         };
     },

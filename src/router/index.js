@@ -4,6 +4,7 @@ import i18n from "../translations";
 import HomePage from "../views/HomePage";
 import MenuPage from "../views/MenuPage";
 import ContactPage from "../views/ContactPage";
+import PageNotFound from "../views/PageNotFound";
 
 Vue.use(VueRouter);
 
@@ -32,6 +33,14 @@ const router = new VueRouter({
             component: ContactPage,
             meta: {
                 title: i18n.t('Contact - Edomae')
+            }
+        },
+        {
+            name: 'Page not found',
+            path: '*',
+            component: PageNotFound,
+            meta: {
+                title: i18n.t("Page not found - Edomae")
             }
         }
     ],

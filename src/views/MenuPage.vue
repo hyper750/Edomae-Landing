@@ -138,10 +138,12 @@ export default {
 
         selectCategory(mealCategory) {
             this.selectedCategory = mealCategory;
+            window.scrollTo(0, 0);
         },
 
         unselectCategory() {
             this.selectedCategory = null;
+            window.scrollTo(0, 0);
         },
     },
 };

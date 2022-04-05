@@ -91,6 +91,15 @@ import MealCategoryEndpoints from "../axios/api/mealCategory";
 import { BIconChevronLeft } from "bootstrap-vue";
 
 export default {
+    metaInfo: {
+        meta: [
+            {
+                name: 'Description',
+                content: 'Menú del restaurante Edomae Mahón'
+            }
+        ]
+    },
+
     components: {
         NavBar,
         FooterBar,

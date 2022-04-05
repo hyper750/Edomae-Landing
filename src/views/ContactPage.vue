@@ -155,6 +155,15 @@ import FooterBar from "../components/FooterBar";
 import ContactMessageEndpoints from "../axios/api/contactMessage";
 
 export default {
+    metaInfo: {
+        meta: [
+            {
+                name: 'Description',
+                content: 'Donde encontrar y/o contactar con Edomae Mahón'
+            }
+        ]
+    },
+
     components: {
         NavBar,
         FooterBar,

@@ -96,6 +96,15 @@ import FooterBar from "../components/FooterBar";
 import { BIconChevronDown, BIconChevronUp } from "bootstrap-vue";
 
 export default {
+    metaInfo: {
+        meta: [
+            {
+                name: 'Description',
+                content: 'Edomae Mahón es un restaurante de sushi y comida japonesa localizado en el centro de Mahón'
+            }
+        ]
+    },
+
     components: {
         NavBar,
         FooterBar,

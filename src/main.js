@@ -4,6 +4,7 @@ import router from "./router";
 import i18n from "./translations";
 import "./recaptcha";
 import "./bootstrap";
+import "./meta";
 import "./assets/landing.css";
 
 

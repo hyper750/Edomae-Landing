@@ -17,56 +17,60 @@
                         </b-col>
                     </b-row>
 
-                    <!-- Show categories if no category is selected -->
-                    <b-row v-if="!selectedCategory">
-                        <b-col
-                            md="3"
-                            class="mb-4"
-                            v-for="mealCategory in mealCategories"
-                            :key="mealCategory.id"
-                        >
-                            <b-card
-                                :title="mealCategory.name"
-                                :img-src="mealCategory.imatge"
-                                :img-alt="mealCategory.name"
-                                class="menu-card shadow-sm h-100"
-                                @click="() => selectCategory(mealCategory)"
+                    <transition name="fade" mode="out-in">
+                        <!-- Show categories if no category is selected -->
+                        <b-row v-if="!selectedCategory">
+                            <b-col
+                                md="3"
+                                class="mb-4"
+                                v-for="mealCategory in mealCategories"
+                                :key="mealCategory.id"
                             >
-                            </b-card>
-                        </b-col>
-                    </b-row>
-                    <!-- Show meals of the category selected -->
-                    <b-row v-if="selectedCategory">
-                        <b-col md="12" class="mb-3">
-                            <b-btn
-                                variant="outline-primary"
-                                class="me-4"
-                                @click="() => unselectCategory()"
-                            >
-                                <BIconChevronLeft />
-                                {{ $t("Back to categories") }}
-                            </b-btn>
-                            <h3 class="d-inline align-middle">
-                                {{ selectedCategory.name }}
-                            </h3>
-                        </b-col>
+                                <b-card
+                                    :title="mealCategory.name"
+                                    :img-src="mealCategory.imatge"
+                                    :img-alt="mealCategory.name"
+                                    class="menu-card shadow-sm h-100"
+                                    @click="() => selectCategory(mealCategory)"
+                                >
+                                </b-card>
+                            </b-col>
+                        </b-row>
+                    </transition>
+                    <transition name="fade" mode="out-in">
+                        <!-- Show meals of the category selected -->
+                        <b-row v-if="selectedCategory">
+                            <b-col md="12" class="mb-3">
+                                <b-btn
+                                    variant="outline-primary"
+                                    class="me-4"
+                                    @click="() => unselectCategory()"
+                                >
+                                    <BIconChevronLeft />
+                                    {{ $t("Back to categories") }}
+                                </b-btn>
+                                <h3 class="d-inline align-middle">
+                                    {{ selectedCategory.name }}
+                                </h3>
+                            </b-col>
 
-                        <b-col
-                            md="3"
-                            class="mb-4"
-                            v-for="meal in getMealByCategory"
-                            :key="meal.id"
-                        >
-                            <b-card
-                                :title="`${meal.name} - ${meal.price}€`"
-                                :sub-title="meal.description"
-                                :img-src="meal.imatge"
-                                :img-alt="meal.name"
-                                class="menu-card shadow-sm h-100"
+                            <b-col
+                                md="3"
+                                class="mb-4"
+                                v-for="meal in getMealByCategory"
+                                :key="meal.id"
                             >
-                            </b-card>
-                        </b-col>
-                    </b-row>
+                                <b-card
+                                    :title="`${meal.name} - ${meal.price}€`"
+                                    :sub-title="meal.description"
+                                    :img-src="meal.imatge"
+                                    :img-alt="meal.name"
+                                    class="menu-card shadow-sm h-100"
+                                >
+                                </b-card>
+                            </b-col>
+                        </b-row>
+                    </transition>
                 </b-container>
             </b-col>
         </b-row>

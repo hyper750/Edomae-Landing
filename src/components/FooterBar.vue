@@ -20,9 +20,10 @@
                 </b-col>
                 <b-col md="3" class="mx-auto">
                     <ul>
-                        <li class="text-muted"><span class="fw-bold">{{ $t("Phone number") }}</span> <span class="fst-italic"><a href="tel:+34690706244">690 706 244</a></span></li>
-                        <li class="text-muted"><span class="fw-bold">{{ $t("Location") }}</span> <span class="fst-italic"><a href="https://goo.gl/maps/gBGAaqBtD1HqDskh9" target="_blank">C/ Bon Aire, 26, 07701 Maó, Illes Balears</a></span></li>
-                        <li class="text-muted"><span class="fw-bold">{{ $t("E-mail") }}</span> <span class="fst-italic"><a href="mailto:info@edomae.es">info@edomae.es</a></span></li>
+                        <li class="text-muted"><span class="fw-bold"><b-icon icon="telephone-outbound-fill"></b-icon></span> <span class="fst-italic"><a href="tel:+34690706244">690 706 244</a></span></li>
+                        <li class="text-muted"><span class="fw-bold"><b-icon icon="geo-alt-fill"></b-icon></span> <span class="fst-italic"><a href="https://goo.gl/maps/gBGAaqBtD1HqDskh9" target="_blank">C/ Bon Aire, 26, 07701 Maó, Illes Balears</a></span></li>
+                        <li class="text-muted"><span class="fw-bold"><b-icon icon="envelope-fill"></b-icon></span> <span class="fst-italic"><a href="mailto:info@edomae.es">info@edomae.es</a></span></li>
+                        <li class="text-muted"><span class="fw-bold"><b-icon icon="instagram"></b-icon></span> <span class="fst-italic"><a href="https://www.instagram.com/edomaemao/" target="_blank">@edomaemao</a></span></li>
                     </ul>
                 </b-col>
             </b-row>

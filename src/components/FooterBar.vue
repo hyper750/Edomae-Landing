@@ -101,7 +101,7 @@ export default {
                 'ca',
             ];
 
-            if(lang in excludeLang) {
+            if(excludeLang.includes(lang)) {
                 lang = 'en';
             }
 

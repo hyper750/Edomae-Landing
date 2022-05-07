@@ -23,7 +23,7 @@
                 </b-col>
                 <b-col md="3" class="mx-auto">
                     <ul>
-                        <li v-for="weekDay in getWeekDays" :key="weekDay.getTime()" class="text-muted">
+                        <li v-for="weekDay in getWeekDays" :key="weekDay.getTime()" class="text-muted fst-italic" :class="{'fw-bold': isCurrentWeekDay(weekDay)}">
                             {{ formatWeekDayName(weekDay) }}: 
                                 <span v-if="!isClosedDay(weekDay)">
                                     <span>
@@ -86,6 +86,10 @@ export default {
 
         formatHour(hour) {
             return hour.map((h) => `${h.open} - ${h.close}`).join(', ');
+        },
+
+        isCurrentWeekDay(date) {
+            return date.getDay() === new Date().getDay();
         },
     },
 
